@@ -67,7 +67,7 @@ for filename in archivosrepetidos:
 #aqui aplico el json
 
 
-diccionario_dearchivos_archivosrepetidos={'los archivos que estannnnnnnnnnnnnnnn repetidos son':list(archivosrepetidos),
+diccionario_dearchivos_archivosrepetidos={'los archivos que estan repetidos son':list(archivosrepetidos),
                                           'los archivos que estan en la carpeta 1 pero no en la 2 son':list(archivosdiferentes),
                                           'los arcivos que entan en la carpeta 2 pero no en la 1 son':list(archivosdiferentes2)}
 
