@@ -4,6 +4,7 @@ variable_dict = {}
 print(variable_dict)
 contador = 0
 set_files = {'1.txt', '2.txt', '3.txt', '4.txt'}
+set_rsf={'12.txt', '23.txt', '32.txt', '41.txt'}
 for archivo in set_files:
   variable_dict[archivo] = contador
   contador = contador - 1

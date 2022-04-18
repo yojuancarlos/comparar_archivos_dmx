@@ -1,7 +1,6 @@
 import json
 import os
-import re
-import pickle
+
 
 #-------------------------------------------------------------------
 #aqui van las rutas
@@ -18,58 +17,67 @@ m=set(list_Carpeta1)
 m2=set(list_Carpeta2)
 #---------------------------------------------------------------------------------
 #utilizo teoria de conjuntos
+#archivos repetidos
 archivosrepetidos=m&m2
-print(list(archivosrepetidos))
-print(f"los archivos repetidos son {archivosrepetidos}")
 
+
+#archivos que estan en una carpeta pero no en otra
 archivosdiferentes=m-m2
-print(f"los archivos que estan en la carpeta 1 pero no en la carpeta 2 son {archivosdiferentes}")
 archivosdiferentes2=m2-m
-print(f"los archivos que estan en la carpeta 2 pero no en la carpeta 1 son {archivosdiferentes2}")
+
 
 #    diferencia    "-"
 
 #--------------------------------------------------------------------------------------------------
 # aqui mero el peso de cada archivo
-variable_dict = {}
-contador = 0
+
+listaprueba=[]
+rutas=[]
+peso=[]
+
+diccionarioprueba={}
 for filename in archivosrepetidos:
  #   --------------------------
-    variable_dict[filename] = contador
-    contador = contador + 1
-    print(variable_dict)
-    with open('algo.json', 'w') as file:
-# file.write(aux)
-        json.dump(list(variable_dict), file, indent=4)
-    print("---"*20)
+    #print("---"*20)
     variable_de_rutas_de_la_carpeta1 =(f"{carpeta1}\{filename}")
     file_size = os.path.getsize(variable_de_rutas_de_la_carpeta1)
-    #print('el tamaño del archivo',filename,' de la carpeta 1 es ', file_size, 'bytes')
     variable_de_rutas_de_la_carpeta2 = (f"{carpeta2}\{filename}")
     file_size2 = os.path.getsize(variable_de_rutas_de_la_carpeta2)
-
-    #print('el tamaño del archivo', filename, ' de la carpeta 2 es ', file_size2, 'bytes')
 #-----------------------------------------------------------------------------------------------------
 #aqui miro cual es el mas pesado cuando los archivos se repiten
     if file_size > file_size2:
 
-        print(f"el archivo {filename} mas pesados esta en la {variable_de_rutas_de_la_carpeta1}  y su peso es {file_size}")
-        aux=print(f"el archivo {filename} mas pesados esta en la {variable_de_rutas_de_la_carpeta1}  y su peso es {file_size}")
+        #print(f"el archivo {filename} mas pesados esta en la {variable_de_rutas_de_la_carpeta1}  y su peso es {file_size}")
+        listaprueba.append((variable_de_rutas_de_la_carpeta1,file_size))
+
+
     elif file_size2 > file_size:
-        print(f"el archivo {filename} mas pesado esta en la {variable_de_rutas_de_la_carpeta2}  y su peso es {file_size2}")
-    aux = f"el archivo {filename} mas pesado esta en la {variable_de_rutas_de_la_carpeta2}  y su peso es {file_size}\n"
+       # print(f"el archivo {filename} mas pesado esta en la {variable_de_rutas_de_la_carpeta2}  y su peso es {file_size2}")
+
+        listaprueba.append((variable_de_rutas_de_la_carpeta2,file_size2))
 
 
-
+print(listaprueba)
+#aqui aplico el json
 
 #
 
-#aqui aplico el json
 
 
-diccionario_dearchivos_archivosrepetidos={'los archivos que estan repetidos son':list(archivosrepetidos),
-                                          'los archivos que estan en la carpeta 1 pero no en la 2 son':list(archivosdiferentes),
-                                          'los arcivos que entan en la carpeta 2 pero no en la 1 son':list(archivosdiferentes2)}
+diccionario_dearchivos_archivosrepetidos={'ambas_carpetas':list(archivosrepetidos),
+                                          'solo_carpeta1':list(archivosdiferentes),
+                                          'solo_Carpeta2':list(archivosdiferentes2)
+
+
+
+}
+#aqui adiciono a json el peso
+diccionario_dearchivos_archivosrepetidos['archivosconpeso']={}
+for elemento in listaprueba:
+    key=elemento[0]
+    value=elemento[1]
+    diccionario_dearchivos_archivosrepetidos['archivosconpeso'][key]=value
+
 
 
 with open('data.json','w') as file:

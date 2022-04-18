@@ -1,7 +1,21 @@
-[
-    "1.txt",
-    "5.txt",
-    "2.txt",
-    "4.txt",
-    "3.txt"
-]
+
+    "ambas_carpetas": [
+        "5.txt",
+        "3.txt",
+        "2.txt",
+        "4.txt",
+        "1.txt"
+    ],
+    "solo_carpeta1": [
+        "7.txt",
+        "8.txt",
+        "ApexLegendsInstaller.exe"
+    ],
+    "solo_Carpeta2": [
+        "6.txt",
+        "toaz.info-economia-en-colores-pr_981d092fab54fc48b2db774e16e04916.pdf"
+    ],
+    "masgrandes": {
+        "archivo1_carpeta1": 6
+    }
+}
