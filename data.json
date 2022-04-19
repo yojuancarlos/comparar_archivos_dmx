@@ -1,24 +1,28 @@
 {
     "ambas_carpetas": [
-        "2.txt",
-        "4.txt",
         "5.txt",
+        "2.txt",
         "3.txt",
-        "1.txt"
+        "4.txt",
+        "1.txt",
+        "12.txt"
     ],
     "solo_carpeta1": [
-        "8.txt",
+        "ApexLegendsInstaller.exe",
         "7.txt",
-        "ApexLegendsInstaller.exe"
+        "8.txt"
+    ],
+    "archivos_iguales": [
+        "4.txt",
+        "12.txt"
     ],
     "solo_Carpeta2": [
         "toaz.info-economia-en-colores-pr_981d092fab54fc48b2db774e16e04916.pdf",
         "6.txt"
     ],
     "archivosconpeso": {
-        "C:\\pruebas\\carpeta2\\2.txt": 15,
-        "C:\\pruebas\\carpeta2\\4.txt": 5,
         "C:\\pruebas\\carpeta1\\5.txt": 10,
+        "C:\\pruebas\\carpeta2\\2.txt": 15,
         "C:\\pruebas\\carpeta1\\3.txt": 9,
         "C:\\pruebas\\carpeta1\\1.txt": 25
     }
