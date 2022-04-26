@@ -34,9 +34,13 @@ archivosdiferentes2 = m2-m
 archivos_con_pesos_iguales=[]
 rutasypeso=[]
 for filename in archivosrepetidos:
-    variable_de_rutas_de_la_carpeta1 =(f"{carpeta1}\{filename}")
+    #variable_de_rutas_de_la_carpeta1 =(f"{carpeta1}\{filename}")
+    variable_de_rutas_de_la_carpeta1 = os.path.join(carpeta1,filename)
+    print(variable_de_rutas_de_la_carpeta1)
     peso_archivo_carpeta1 = os.path.getsize(variable_de_rutas_de_la_carpeta1)
-    variable_de_rutas_de_la_carpeta2 = (f"{carpeta2}\{filename}")
+    #variable_de_rutas_de_la_carpeta2 = (f"{carpeta2}\{filename}")
+    variable_de_rutas_de_la_carpeta2 = os.path.join(carpeta2, filename)
+    print(variable_de_rutas_de_la_carpeta2)
     peso_archivo_carpeta2 = os.path.getsize(variable_de_rutas_de_la_carpeta2)
     if filename.endswith(".dmx"):
         print("exito")
