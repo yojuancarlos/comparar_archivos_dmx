@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 
 # -------------------------------------------------------------------
@@ -10,7 +11,7 @@ carpeta2 = "C:\pruebas\carpeta2"
 
 lista_carpeta1 = os.listdir(carpeta1)
 lista_carpeta2 = os.listdir(carpeta2)
-
+exprecion_regular="(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])([0-1][0-9]|2[0-3])([0-5][0-9])\.dmx$"
 # conjunto
 m = set(lista_carpeta1)
 m2 = set(lista_carpeta2)
@@ -27,24 +28,33 @@ archivosdiferentes2 = m2-m
 
 #    diferencia    "-"
 # para que solo me muestre archivos dmx
+# --------------------------------------------------------------------------------------------------
+# filtrar archivos dmx
+
+archivos_dmx_repetidos = [f for f in archivosrepetidos if re.match(exprecion_regular, f)]
+print(archivos_dmx_repetidos)
+archivos_dmx_diferentes = [f for f in archivosdiferentes if re.match(exprecion_regular, f)]
+print(archivos_dmx_diferentes)
+archivos_dmx_diferentes2 = [f for f in archivosdiferentes2 if re.match(exprecion_regular, f)]
+print(archivos_dmx_diferentes2)
 
 
 # --------------------------------------------------------------------------------------------------
 # aqui mero el peso de cada archivo
 archivos_con_pesos_iguales=[]
 rutasypeso=[]
-for filename in archivosrepetidos:
+
+
+for filename in archivos_dmx_repetidos:
     #variable_de_rutas_de_la_carpeta1 =(f"{carpeta1}\{filename}")
     variable_de_rutas_de_la_carpeta1 = os.path.join(carpeta1,filename)
-    print(variable_de_rutas_de_la_carpeta1)
+    #print(variable_de_rutas_de_la_carpeta1)
     peso_archivo_carpeta1 = os.path.getsize(variable_de_rutas_de_la_carpeta1)
     #variable_de_rutas_de_la_carpeta2 = (f"{carpeta2}\{filename}")
     variable_de_rutas_de_la_carpeta2 = os.path.join(carpeta2, filename)
-    print(variable_de_rutas_de_la_carpeta2)
+    #print(variable_de_rutas_de_la_carpeta2)
     peso_archivo_carpeta2 = os.path.getsize(variable_de_rutas_de_la_carpeta2)
-    if filename.endswith(".dmx"):
-        print("exito")
-    print(filename)
+
 # -----------------------------------------------------------------------------------------------------
 # aqui miro cual es el mas pesado cuando los archivos se repiten
     if peso_archivo_carpeta1 >peso_archivo_carpeta2:
@@ -59,22 +69,23 @@ for filename in archivosrepetidos:
        archivos_con_pesos_iguales.append(filename)
 
 
-print(rutasypeso)
+
 # aqui aplico el json
 
 
 
 
-diccionario_dearchivos_archivosrepetidos={'ambas_carpetas':list(archivosrepetidos),
-                                          'solo_carpeta1':list(archivosdiferentes),
+diccionario_dearchivos_archivosrepetidos={'ambas_carpetas':list(archivos_dmx_repetidos),
+                                          'solo_carpeta1':list(archivos_dmx_diferentes),
                                           'archivos_iguales':list(archivos_con_pesos_iguales),
-                                          'solo_carpeta2':list(archivosdiferentes2)}
+                                          'solo_carpeta2':list(archivos_dmx_diferentes2)}
 # aqui adiciono a json el peso
 diccionario_dearchivos_archivosrepetidos['archivosconpeso']={}
 for elemento in rutasypeso:
     key=elemento[0]
     value=elemento[1]
     diccionario_dearchivos_archivosrepetidos['archivosconpeso'][key]=value
+
 
 
 

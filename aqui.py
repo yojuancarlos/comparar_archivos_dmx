@@ -1,8 +1,11 @@
 import re
 
-prueba="03290926.dmx"
-prueba2="03290926.dmx"
-print (prueba.endswith(".dmx"))
+prueba ="03290926.dmx"
+prueba3="03290925.dmx"
+prueba4= "0329092dad8.dmx"
+prueba2="03290929.dmx"
+
+
 
 # Expresiones regulares
 #   ^ Inicia
@@ -12,21 +15,27 @@ print (prueba.endswith(".dmx"))
 #  () Hace un grupo
 #  (|) Grupos con opciones
 pattern="(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])([0-1][0-9]|2[0-3])([0-5][0-9])\.dmx$"
+tal=[]
+tal.append(prueba)
+tal.append(prueba2)
+tal.append(prueba3)
+tal.append(prueba4)
 
-if prueba.endswith(".dmx"):
-    print("asi si es")
-m = re.match(pattern, prueba)
+
 m2=re.match(pattern,prueba2)
-print("escriba el mes")
-mes=input()
-if m.groups()[1]==mes:
-    print("exito")
-print(type(mes))
-#por fechas
-print(m.groups()[1])
 
-if m.groups()== m2.groups():
-    print(m.groups())
+
+
+files = [f for f in tal if re.match(pattern, f)]
+
+print(files)
+
+
+#if m.groups()
+#
+
+
+
 
 
 
