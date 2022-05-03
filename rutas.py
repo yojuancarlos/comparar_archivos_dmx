@@ -52,7 +52,7 @@ diccionario_de_respuesta={'ambas_carpetas':list(archivos_dmx_repetidos),
                         'archivos_con peso igual':list(archivos_con_pesos_iguales),
                         'solo_carpeta2':list(archivos_dmx_diferentes2)}
 # aqui adiciono a json el peso
-diccionario_de_respuesta['archivosconpeso']={}
+diccionario_de_respuesta['archivosconmayorpeso']={}
 for elemento in rutasypeso:
     key=elemento[0]
     value=elemento[1]
