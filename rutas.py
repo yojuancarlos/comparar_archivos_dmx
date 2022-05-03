@@ -48,9 +48,9 @@ for filename in archivos_dmx_repetidos:
        archivos_con_pesos_iguales.append(filename)
 # aqui aplico el json
 diccionario_de_respuesta={'ambas_carpetas':list(archivos_dmx_repetidos),
-                                          'solo_carpeta1':list(archivos_dmx_diferentes),
-                                          'archivos_iguales':list(archivos_con_pesos_iguales),
-                                          'solo_carpeta2':list(archivos_dmx_diferentes2)}
+                        'solo_carpeta1':list(archivos_dmx_diferentes),
+                        'archivos_con peso igual':list(archivos_con_pesos_iguales),
+                        'solo_carpeta2':list(archivos_dmx_diferentes2)}
 # aqui adiciono a json el peso
 diccionario_de_respuesta['archivosconpeso']={}
 for elemento in rutasypeso:

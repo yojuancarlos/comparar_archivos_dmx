@@ -1,18 +1,18 @@
 {
     "ambas_carpetas": [
-        "03290926.dmx",
-        "04291111.dmx"
+        "04291111.dmx",
+        "03290926.dmx"
     ],
     "solo_carpeta1": [
         "04291115.dmx"
     ],
-    "archivos_iguales": [
+    "archivos_con peso igual": [
         "04291111.dmx"
     ],
     "solo_carpeta2": [
         "04291112.dmx"
     ],
     "archivosconpeso": {
-        "C:\\pruebas\\carpeta1\\03290926.dmx": 12
+        "C:\\pruebas\\carpeta1\\03290926.dmx": 38
     }
 }
