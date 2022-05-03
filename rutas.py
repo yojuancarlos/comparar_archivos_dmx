@@ -56,7 +56,7 @@ diccionario_de_respuesta['archivosconpeso']={}
 for elemento in rutasypeso:
     key=elemento[0]
     value=elemento[1]
-    diccionario_de_respuesta['archivosconpeso'][key]=value
+    diccionario_de_respuesta['archivosconmayorpeso'][key]=value
 with open('data.json','w') as file:
     json.dump(diccionario_de_respuesta, file, indent=4)
 
