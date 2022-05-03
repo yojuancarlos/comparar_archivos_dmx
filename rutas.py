@@ -12,6 +12,7 @@ exprecion_regular = "(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])([0-1][0-9]|2[0-3])(
 # conjunto
 m = set(lista_carpeta1)
 m2 = set(lista_carpeta2)
+#---------
 # ---------------------------------------------------------------------------------
 # utilizo teoria de conjuntos
 # archivos repetidos
