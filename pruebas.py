@@ -40,13 +40,16 @@ for filename in archivos_dmx_repetidos:
 # -----------------------------------------------------------------------------------------------------
 # aqui miro cual es el mas pesado cuando los archivos se repiten
     if peso_archivo_carpeta1 >peso_archivo_carpeta2:
+        # print(f"el archivo {filename} mas pesados esta en la {variable_de_rutas_de_la_carpeta1}  y su peso es {peso_archivo_carpeta1}")
         rutasypeso.append((variable_de_rutas_de_la_carpeta1,peso_archivo_carpeta1))
     elif peso_archivo_carpeta2 > peso_archivo_carpeta1:
+       # print(f"el archivo {filename} mas pesado esta en la {variable_de_rutas_de_la_carpeta2}  y su peso es {peso_archivo_carpeta12}")
         rutasypeso.append((variable_de_rutas_de_la_carpeta2,peso_archivo_carpeta2))
     if peso_archivo_carpeta1==peso_archivo_carpeta2:
        archivos_con_pesos_iguales.append(filename)
 # aqui aplico el json
-diccionario_de_respuesta={'solo_carpeta1':list(archivos_dmx_diferentes),
+diccionario_de_respuesta={'ambas_carpetas':list(archivos_dmx_repetidos),
+                        'solo_carpeta1':list(archivos_dmx_diferentes),
                         'archivos_con peso igual':list(archivos_con_pesos_iguales),
                         'solo_carpeta2':list(archivos_dmx_diferentes2)}
 # aqui adiciono a json el peso
