@@ -1,8 +1,8 @@
 {
     "ambas_carpetas": [
-        "04291119.dmx",
         "03290926.dmx",
-        "04291111.dmx"
+        "04291111.dmx",
+        "04291119.dmx"
     ],
     "solo_carpeta1": [
         "04291115.dmx",
@@ -15,7 +15,7 @@
         "04291112.dmx"
     ],
     "archivosconmayorpeso": {
-        "C:\\pruebas\\carpeta1\\03290926.dmx": 38,
-        "C:\\pruebas\\carpeta2\\04291111.dmx": 26
+        "C:/pruebas/carpeta1\\03290926.dmx": 38,
+        "C:/pruebas/carpeta2\\04291111.dmx": 26
     }
 }
